@@ -1,0 +1,38 @@
+{
+  "name": "passport-wrike",
+  "version": "0.0.1",
+  "description": "Wrike authentication strategy for Passport.",
+  "keywords": [
+    "passport",
+    "wrike",
+    "auth",
+    "authn",
+    "authentication",
+    "identity"
+  ],
+  "author": {
+	"name": "Lucas Monteverde",
+    "email": "monteverde13@gmail.com",
+    "url": "http://www.lucasmonteverde.com/"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/lucasmonteverde/passport-wrike.git"
+  },
+  "bugs": {
+    "url": "http://github.com/lucasmonteverde/passport-wrike/issues"
+  },
+  "main": "./lib",
+  "dependencies": {
+    "passport-oauth2": "1.x.x"
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  }
+}
