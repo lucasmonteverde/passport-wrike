@@ -1,7 +1,7 @@
 # Passport-Wrike
 
 [Passport](https://github.com/jaredhanson/passport) strategy for authenticating
-with [Wrike](http://wordpress.com) using the OAuth 2.0 API.
+with [Wrike](http://wrike.com) using the OAuth 2.0 API.
 
 ## Install
 
@@ -18,10 +18,11 @@ accepts these credentials and calls `done` providing a user, as well as
 
     passport.use(new WrikeStrategy({
         clientID: CLIENT_ID,
-        clientSecret: CLIENT_SECRET
+        clientSecret: CLIENT_SECRET,
+		callbackURL: "/auth/wrike/callback"
       },
       function(accessToken, refreshToken, profile, done) {
-        User.findOrCreate({ WrikeId: profile.id }, function (err, user) {
+        User.findOrCreate({ 'wrike.id': profile.id }, function (err, user) {
           return done(err, user);
         });
       }
@@ -39,11 +40,8 @@ application:
       passport.authorize('wrike'));
 
     app.get('/auth/wrike/callback', 
-      passport.authorize('wrike', { failureRedirect: '/login' }),
-      function(req, res) {
-        // Successful authentication, redirect home.
-        res.redirect('/');
-      });
+      passport.authorize('wrike', { successRedirect: '/', 
+									failureRedirect: '/login' }));
 
 ## Thanks
 
